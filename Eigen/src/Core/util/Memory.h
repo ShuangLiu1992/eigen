@@ -1241,7 +1241,7 @@ inline int queryTopLevelCacheSize()
  * This wraps C++20's std::construct_at, using placement new instead if it is not available.
  */
 
-#if EIGEN_COMP_CXXVER >= 20
+#if EIGEN_COMP_CXXVER >= 20 && !defined(ANDROID)
 using std::construct_at;
 #else
 template<class T, class... Args>
